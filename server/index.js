@@ -1,16 +1,23 @@
-// import express from "express"
 // const express = require('express')
 import express from 'express'
 // const cors = require('cors')
 import cors from 'cors'
+import authRouter from "./routes/auth.js"
+import connectToDb from "./db/db.js"
+
+
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.use("/api/auth",authRouter)
+
+connectToDb()
+
 
 // require('dotenv').config()
 
-// const port = 3000
-const port = process.env.PORT
+const port = 3000
+// const port = process.env.PORT
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

@@ -1,9 +1,16 @@
-//MERN Stack Employee Management System – Login Functionality & Authentication Setup (Part 2)--->15min
-// import "./App.css";
-import {BrowserRoute,Routes,Route} from 'react-router-dom'
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import Login from "./pages/Login";
+import AdminDashBoard from "./pages/AdminDashBoard";
 
 function App() {
-  return <h1 className="text-3xl text-teal-700">Welcome to EMS</h1>;
+  // return <h1 className="text-3xl text-teal-700">Welcome to EMS</h1>;
+  return <BrowserRouter>
+    <Routes>
+      {/* <Route path="/" element={<Navigate to="/admin-dashboard" />} /> */}
+      <Route path="/login" element={<Login/>} />
+      <Route path="/admin-dashboard" element={<AdminDashBoard/>} />
+    </Routes>
+  </BrowserRouter>;
 }
 
 export default App;
