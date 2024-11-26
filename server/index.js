@@ -1,11 +1,16 @@
 // import express from "express"
-const express = require('express')
-const cors = require('cors')
+// const express = require('express')
+import express from 'express'
+// const cors = require('cors')
+import cors from 'cors'
 const app = express()
 app.use(cors())
 app.use(express.json())
-const port = 3000
-// const port = process.env.PORT
+
+// require('dotenv').config()
+
+// const port = 3000
+const port = process.env.PORT
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

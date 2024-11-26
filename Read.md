@@ -18,7 +18,7 @@ Required:
 ***create folder inside folder:server-->https://expressjs.com/en/starter/installing.html
 1.npm init -y
 2.npm install bcrypt cors express jsonwebtoken mongoose multer nodemon path
-//learning:bcrypt,multer nodemon path
+//learning:bcrypt,multer nodemon path dotenv
 3.create index.js file
 //https://expressjs.com/en/starter/hello-world.html
 
@@ -27,3 +27,13 @@ Required:
 or
 2.start nodemon --env-file=.env index.js
 create .env file
+3."scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --env-file=.env index.js"
+  },
+4.during connect to database run this file as:$node --env-file=.env userSeed.js,
+add "type": "module" in the package.json & // require('dotenv').config() not required
+5.run server--->npm run start
+
+frontend:
+1.run frontend--->npm run dev
