@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import axios from './../../node_modules/axios/lib/axios';
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const [error,setError] = useState(null)
-    // console.log(email)
-    // console.log(password)
+
+    const {user,loginUser} = useAuth();
+    console.log(user)
+    console.log(loginUser)
+    const navigate = useNavigate()
 
     const handleFormSubmit = async(e) =>{
         e.preventDefault();
@@ -15,8 +20,15 @@ const Login = () => {
             const response = await axios.post("http://localhost:3000/api/auth/login",{email,password})
             console.log(response)
             if(response.data.success){
-                alert("successfully login")
-                setError(null)
+                // alert("successfully login")
+                // setError(null)
+                loginUser(response.data.user)
+                localStorage.setItem("token",response.data.token)
+                if(response.data.user.role=="admin"){
+                  navigate("/admin-dashboard")
+                }else{
+                  navigate("/employee-dashboard")
+                }
             }
 
         }catch(err){
@@ -44,7 +56,7 @@ const Login = () => {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               className="w-full px-3 py-2 border"
               placeholder="type your email"
               onChange={(e)=>setEmail(e.target.value)}
