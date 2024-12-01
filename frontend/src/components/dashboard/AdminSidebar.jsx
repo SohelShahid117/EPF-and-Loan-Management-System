@@ -15,40 +15,41 @@ const AdminSidebar = () => {
         <NavLink
           to="/admin-dashboard"
         //   className="flex items-center space-x-4 block py-3 px-4 rounded"
-          className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 rounded`}
-        >
+          className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 mx-2 rounded`}
+        end>
+        {/* end use for dynamic active on/off dhows */}
           <FaTachometerAlt />
           <span>Dashboard</span>
         </NavLink>
         <NavLink to="/employee-dashboard" 
         // className="flex items-center space-x-4 block py-3 px-4 rounded "  
-        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 rounded`}>
+        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 mx-2 rounded`}>
           <FaUsers />
           <span>Employees</span>
         </NavLink>
-        <NavLink to="/employee-dashboard" 
+        <NavLink to="/admin-dashboard/departments" 
         // className="flex items-center space-x-4 block py-3 px-4 rounded ">
-        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 rounded`}>
+        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 mx-2 rounded`}>
           <FaBuilding />
           <span>Department</span>
         </NavLink>
         <NavLink to="/employee-dashboard" 
         // className="flex items-center space-x-4 block py-3 px-4 rounded "
-        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 rounded`}
+        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 mx-2 rounded`}
         >
           <FaCalendarAlt />
           <span>Leave</span>
         </NavLink>
         <NavLink to="/employee-dashboard" 
         // className="flex items-center space-x-4 block py-3 px-4 rounded "
-        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 rounded`}
+        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 mx-2 rounded`}
         >
           <FaMoneyBillWave />
           <span>Salary</span>
         </NavLink>
         <NavLink to="/employee-dashboard" 
         // className="flex items-center space-x-4 block py-3 px-4 rounded "
-        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 rounded`}
+        className={({isActive})=>`${isActive ? "bg-teal-500":" "} flex items-center space-x-4 block py-3 px-4 mx-2 rounded`}
         >
           <FaCogs />
           <span>Setting</span>
