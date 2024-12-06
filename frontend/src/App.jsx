@@ -7,6 +7,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import RoleBasedRoute from "./utils/RoleBasedRoute";
 import AdminSummary from "./components/dashboard/AdminSummary";
 import Department from "./components/departments/Department";
+import AddDepartment from "./components/departments/AddDepartment";
 
 function App() {
   // return <h1 className="text-3xl text-teal-700">Welcome to EMS</h1>;
@@ -18,7 +19,7 @@ function App() {
         <Route
           path="/admin-dashboard"
           element={
-          // <AdminDashBoard />
+            // <AdminDashBoard />
             <PrivateRoute>
               <RoleBasedRoute requiredRole={["admin"]}>
                 <AdminDashBoard />
@@ -27,10 +28,18 @@ function App() {
           }
         >
           {/* <Route index element={<AdminSummary></AdminSummary>}/> */}
-          <Route path="/admin-dashboard" element={<AdminSummary></AdminSummary>}/>
-          <Route path="/admin-dashboard/departments" element={<Department></Department>}>
-
-          </Route>
+          <Route
+            path="/admin-dashboard"
+            element={<AdminSummary></AdminSummary>}
+          />
+          <Route
+            path="/admin-dashboard/departments"
+            element={<Department></Department>}
+          ></Route>
+          <Route
+            path="/admin-dashboard/add-department"
+            element={<AddDepartment></AddDepartment>}
+          ></Route>
         </Route>
         <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
       </Routes>

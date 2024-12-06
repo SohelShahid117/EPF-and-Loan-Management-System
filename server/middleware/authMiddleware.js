@@ -3,7 +3,13 @@ import user from "../models/user.js"
 const verifyUser=async(req,res,next)=>{
     try{
         // const token = req.headers.authorization.split(' ')[1]
-        const token = req.headers.Authorization.split(' ')[1]
+        const authHeader = req.headers['authorization'];
+        if (!authHeader) {
+            return res.status(401).json({ message: 'Authorization header missing' });
+        }
+
+        // const token = req.headers.Authorization.split(' ')[1]
+        const token = authHeader.split(' ')[1];
         console.log(token)
 
         if(!token){
